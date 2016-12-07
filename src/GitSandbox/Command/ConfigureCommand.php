@@ -10,9 +10,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class ConfigureCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:configure')
-			->setDescription('')
+			->setDescription($mess["ConfigureCommand"]["Description"])
+			->setHelp($mess["ConfigureCommand"]["Help"])
 			->addArgument(
 				'user',
 				InputArgument::REQUIRED,

@@ -10,9 +10,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class SandboxAddCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:sandbox_add')
-			->setDescription('Add sandbox')
+			->setDescription($mess["SandboxAddCommand"]["Description"])
+			->setHelp($mess["SandboxAddCommand"]["Help"])
 			->addArgument(
 				'project',
 				InputArgument::REQUIRED,

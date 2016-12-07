@@ -6,6 +6,7 @@ requres curl, mysqlPDO, phar
 
 */
 require __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/lang.php';
 
 use Symfony\Component\Console\Application;
 use GitSandbox\Command\ConfigureCommand;
@@ -22,7 +23,7 @@ use GitSandbox\Command\VirtualhostRemoveCommand;
 
 $application = new Application();
 $application->add(new ConfigureCommand());
-if(file_exists("/etc/git-sandbox/config.php")){
+//if(file_exists("/etc/git-sandbox/config.php")){
 	$application->add(new UserAddCommand());
 	$application->add(new UserRemoveCommand());
 	$application->add(new ProjectAddCommand());
@@ -31,5 +32,5 @@ if(file_exists("/etc/git-sandbox/config.php")){
 	$application->add(new SandboxRemoveCommand());
 	$application->add(new VirtualhostAddCommand());
 	$application->add(new VirtualhostRemoveCommand());
-}
+//}
 $application->run();

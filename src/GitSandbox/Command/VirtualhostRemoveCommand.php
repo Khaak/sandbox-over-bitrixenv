@@ -11,9 +11,11 @@ use Symfony\Component\Process\Process;
 
 class VirtualhostRemoveCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:virtualhost_remove')
-			->setDescription('Remove virtualhost')
+			->setDescription($mess["VirtualhostRemoveCommand"]["Description"])
+			->setHelp($mess["VirtualhostRemoveCommand"]["Help"])
 			->addArgument(
 				'host',
 				InputArgument::REQUIRED,
@@ -29,7 +31,7 @@ class VirtualhostRemoveCommand extends Command {
 		if (!$input->getArgument('host')) {
 			$host = $this->getHelper('dialog')->askAndValidate(
 				$output,
-				'Please enter a host name: ',
+				'Please enter a full host name: ',
 				function ($host) {
 					if (empty($host)) {
 						throw new \Exception('Host name can not be empty');

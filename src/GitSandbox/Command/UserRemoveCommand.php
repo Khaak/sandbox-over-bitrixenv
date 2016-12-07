@@ -11,9 +11,11 @@ use Symfony\Component\Process\Process;
 
 class UserRemoveCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:user_remove')
-			->setDescription('Remove sandbox user')
+			->setDescription($mess["UserRemoveCommand"]["Description"])
+			->setHelp($mess["UserRemoveCommand"]["Help"])
 			->addArgument(
 				'name',
 				InputArgument::REQUIRED,

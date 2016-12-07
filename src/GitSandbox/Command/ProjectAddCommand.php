@@ -12,17 +12,14 @@ use Symfony\Component\Process\Process;
 
 class ProjectAddCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:project_add')
-			->setDescription('Add project')
+			->setDescription($mess["ProjectAddCommand"]["Description"])
+			->setHelp($mess["ProjectAddCommand"]["Help"])
 			->addArgument(
 				'name',
 				InputArgument::REQUIRED,
-				''
-			)
-			->addArgument(
-				'encoding',
-				InputArgument::OPTIONAL,
 				''
 			)
 		;

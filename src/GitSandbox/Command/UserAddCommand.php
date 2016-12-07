@@ -12,9 +12,11 @@ use Symfony\Component\Process\Process;
 
 class UserAddCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:user_add')
-			->setDescription('Add sandbox user')
+			->setDescription($mess["UserAddCommand"]["Description"])
+			->setHelp($mess["UserAddCommand"]["Help"])
 			->addArgument(
 				'name',
 				InputArgument::REQUIRED,

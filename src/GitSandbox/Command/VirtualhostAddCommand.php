@@ -12,9 +12,11 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class VirtualhostAddCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:virtualhost_add')
-			->setDescription('Add virtualhost')
+			->setDescription($mess["VirtualhostAddCommand"]["Description"])
+			->setHelp($mess["VirtualhostAddCommand"]["Help"])
 			->addArgument(
 				'type',
 				InputArgument::REQUIRED,
@@ -122,7 +124,7 @@ class VirtualhostAddCommand extends Command {
 				fclose($handle);
 			}
 		}
-		$project_vhost_name = $projectname . "." . $settings["DOMAIN"];
+		$project_vhost_name = $projectname;
 		$vhost_name=$project_vhost_name;
 		$vhost_root = "/home/" . $settings["PROJECT_USER"] . "/ext_www/" . $projectname;
 		if ($type == "sandbox") {

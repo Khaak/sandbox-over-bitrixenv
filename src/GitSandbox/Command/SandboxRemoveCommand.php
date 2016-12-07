@@ -10,9 +10,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class SandboxRemoveCommand extends Command {
 	protected function configure() {
+		global $mess;
 		$this
 			->setName('sandbox:sandbox_remove')
-			->setDescription('Remove sandbox')
+			->setDescription($mess["SandboxRemoveCommand"]["Description"])
+			->setHelp($mess["SandboxRemoveCommand"]["Help"])
 			->addArgument(
 				'project',
 				InputArgument::REQUIRED,
