@@ -65,7 +65,7 @@ class ProjectAddCommand extends Command {
 
 		$pass = new PasswordGenerator();
 		$dbHost = "localhost";
-		$dbLogin = substr($str, 0, strpos($projectname, "."));
+		$dbLogin = substr($projectname, 0, strpos($projectname, "."));
 		$dbName = $dbLogin."_db";
 		$dbPasswd = $pass->generate();
 		$sqlstring = "CREATE DATABASE " . $dbName . "; GRANT ALL PRIVILEGES ON " . $dbName . ".* TO '" . $dbLogin . "'@'%' IDENTIFIED BY '" . $dbPasswd . "'; GRANT ALL PRIVILEGES ON " . $dbName . ".* TO '" . $dbLogin . "'@'localhost' IDENTIFIED BY '" . $dbPasswd . "';";
